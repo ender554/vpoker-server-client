@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from './component/card';
 import ReactDOM from 'react-dom';
 import { NavBar } from './component/navbar';
 import {Splash} from './component/splash';
@@ -14,6 +15,7 @@ function App(){
             <Route exact path='/' component={Splash} />
 
           </Switch>
+          <Card />
         </div>
       </BrowserRouter>
     );
