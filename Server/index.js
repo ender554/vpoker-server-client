@@ -22,7 +22,7 @@ app.use(
   })
 );
 
-app.get('/api/cheeses', (req, res) => {
+app.get('/api/users', (req, res) => {
   res.json({
     users: 
     [

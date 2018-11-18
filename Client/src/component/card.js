@@ -6,6 +6,6 @@ import { directive } from 'babel-types';
 export function Card(){
 
   return (
-    <div>Hello world!</div>
+    <div className="game-component" >Game Play goes here</div>
   );
 }

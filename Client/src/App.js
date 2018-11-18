@@ -3,7 +3,9 @@ import { Card } from './component/card';
 import ReactDOM from 'react-dom';
 import { NavBar } from './component/navbar';
 import {Splash} from './component/splash';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {LoginForm} from './component/login';
+import {HistoryPage} from './component/history';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
 
 function App(){
@@ -12,10 +14,13 @@ function App(){
         <div className="App">
           <NavBar />
           <Switch>
-            <Route exact path='/' component={Splash} />
-
+            <Redirect exact from='/' to='/splash' />
+            <Route exact path='/splash' component={Splash} />
+            <Route exact path='/card' component={Card} />
+            <Route exact path='/login' component={LoginForm} />
+            <Route exact path='/history' component={HistoryPage} />
           </Switch>
-          <Card />
+          
         </div>
       </BrowserRouter>
     );
