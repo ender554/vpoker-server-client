@@ -3,6 +3,7 @@ import { Card } from './component/card';
 import ReactDOM from 'react-dom';
 import { NavBar } from './component/navbar';
 import {Splash} from './component/splash';
+import Main from './component/main';
 import LoginForm from './component/login';
 import {HistoryPage} from './component/history';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
@@ -19,6 +20,7 @@ function App(){
             <Route exact path='/card' component={Card} />
             <Route exact path='/login' component={LoginForm} />
             <Route exact path='/history' component={HistoryPage} />
+            <Route exact path='/main' component={Main} />
           </Switch>
           
         </div>
