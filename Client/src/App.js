@@ -3,7 +3,7 @@ import { Card } from './component/card';
 import ReactDOM from 'react-dom';
 import { NavBar } from './component/navbar';
 import {Splash} from './component/splash';
-import {LoginForm} from './component/login';
+import LoginForm from './component/login';
 import {HistoryPage} from './component/history';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import './App.css';
