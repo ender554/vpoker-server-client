@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 
 import './main.css';
 const Main = props => {
-  console.log(props);
   if(props.loggedIn){
     return (
       <div className="button-navs">
@@ -21,7 +20,7 @@ const Main = props => {
   )
 }
 
-const mapStateToProps = state => ({
-  loggedIn: state.game.loggedIn
-}) 
+const mapStateToProps = state => {
+  return ({loggedIn: state.auth.currentUser != null});
+} 
 export default connect(mapStateToProps)(Main);

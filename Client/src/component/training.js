@@ -11,23 +11,28 @@ const deck = new decks.StandardDeck({ jokers: 0 });
 
 
 function deckRender(hand) {
-  
-  let cardList = '<ul class="hand">';
-  for (let i = 0; i < 5; i++) {
-    cardList += `<li key= ${i}>`;
-    cardList += (`${hand[i].rank.shortName} ${hand[i].suit.name} </li>`);
+  // for (let i = 0; i < hand.size; i++) {
+  //   cardList += `<li key= ${i}>`;
+  //   cardList += (`${hand[i].rank.shortName} ${hand[i].suit.name} </li>`);
 
+  // }
+  return hand.map((card, i) => {
+
+    return <li key={i}> {card.rank.shortName} {card.suit.name} </li>
   }
-  return cardList += '</ul>';
+  )
 };
 
 export function Training() {
   deck.shuffleAll();
   const hand = deck.draw(5);
+  console.log(hand);
   return (
     <div className="deal"><Link to='/training'><button>Deal</button></Link>
       <div className="game-component" >
-        {document.write(deckRender(hand))}
+        <ul className="hand">
+          {(deckRender(hand))}
+        </ul>
       </div>
     </div>
   );
