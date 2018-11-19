@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card } from './component/card';
-import ReactDOM from 'react-dom';
+import { Training } from './component/training';
+// import ReactDOM from 'react-dom';
 import { NavBar } from './component/navbar';
 import {Splash} from './component/splash';
 import Main from './component/main';
@@ -14,13 +14,13 @@ function App(){
       <BrowserRouter>
         <div className="App">
           <NavBar />
+          <Main />
           <Switch>
             <Redirect exact from='/' to='/splash' />
             <Route exact path='/splash' component={Splash} />
-            <Route exact path='/card' component={Card} />
+            <Route exact path='/training' component={Training} />
             <Route exact path='/login' component={LoginForm} />
             <Route exact path='/history' component={HistoryPage} />
-            <Route exact path='/main' component={Main} />
           </Switch>
           
         </div>
