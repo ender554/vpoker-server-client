@@ -8,6 +8,7 @@ const Main = props => {
   if(props.loggedIn){
     return (
       <div className="button-navs">
+        {/* <button onClick={props.loggedIn = !props.loggedIn}>Log Out</button> */}
         <Link to='/game'><button>New Game</button></Link>
         <Link to='/userHistory'><button>View History</button></Link>
         <Link to='/userNotes'><button>View Notes</button></Link>
@@ -19,8 +20,8 @@ const Main = props => {
     <div className="button-navs"></div>
   )
 }
-const mapStateToProps = state => ({
-  loggedIn: true
-}) 
 
+const mapStateToProps = state => ({
+  loggedIn: state.game.loggedIn
+}) 
 export default connect(mapStateToProps)(Main);

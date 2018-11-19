@@ -1,12 +1,19 @@
 'use strict';
 
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
-
+const passport = require('passport');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
+const localStrategy = require('./passport/local');
+const jwtStrategy = require('./passport/jwt');
 // const {dbConnect} = require('./db-knex');
+const usersRouter = require('./routes/users');
+const authRouter = require('./routes/auth');
+passport.use(localStrategy);
+passport.use(jwtStrategy);
 
 const app = express();
 
@@ -22,13 +29,17 @@ app.use(
   })
 );
 
-app.get('/api/users', (req, res) => {
-  res.json({
-    users: 
-    [
-      'admin'
-    ]
-  });});
+app.use(express.json());
+
+// const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: true });
+
+app.use('/api/users', usersRouter);
+app.use('/api/auth', authRouter);
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 function runServer(port = PORT) {
   const server = app
