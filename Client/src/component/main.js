@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {connect} from "react-redux";
 
 import './main.css';
 const Main = props => {
-  // if(this.props.user.loggIn){
+  console.log(props);
+  if(props.loggedIn){
     return (
       <div className="button-navs">
         <Link to='/game'><button>New Game</button></Link>
@@ -13,9 +15,12 @@ const Main = props => {
       </div>
     )
   }
-  // else return(
-  //   <div className="button-navs"></div>
-  // )
-// }
+  else return(
+    <div className="button-navs"></div>
+  )
+}
+const mapStateToProps = state => ({
+  loggedIn: true
+}) 
 
-export default Main;
+export default connect(mapStateToProps)(Main);
