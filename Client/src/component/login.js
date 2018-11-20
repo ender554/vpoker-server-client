@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Redirect} from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
 import { registerUser } from '../actions/users';
 import Input from './input';
@@ -11,7 +11,7 @@ const passwordLength = length({ min: 10, max: 72 });
 
 export class LoginForm extends React.Component {
   onSubmitLogin(values) {
-    return this.props.dispatch(login(values.username, values.password));
+    return this.props.dispatch(login(values.username, values.password))
   }
   onSubmitRegister(values) {
     const { username, password } = values;
